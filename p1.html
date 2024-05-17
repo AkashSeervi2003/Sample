@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+graph = {
+    1: [1,2],
+    2: [2,3],
+    3: [3,4],
+    4: [4,5],
+    5: [5,1]
+};
+visited = [];
+queue = [];
+def bfs(visited,graph,node):
+    visited.append(node);
+    queue.append(node);
+    while queue:
+        m = queue.pop(0);
+        print(m,end =" ");
+        for i in graph[m]:
+            if i not in visited:
+                visited.append(i);
+                queue.append(i);
+print("Following is Breath-First-Search: ");
+bfs(visited,graph,1);
+</pre>
+</body>
+</html>

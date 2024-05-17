@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+class Animal:
+def __init__(self,name):
+    self.name = name
+        
+class Cat(Animal):
+    pass
+
+def is_chinky_a_cat(animals):
+    for animal in animals:
+        if isinstance(animal,Cat):
+            return True
+    return False
+
+chinky = Cat("Chinky")
+other_animal = Animal("Dog")
+
+animals = [chinky,other_animal]
+
+if is_chinky_a_cat(animals):
+    print("Chinky is a Cat")
+else:
+    print("Chinky is not a Cat")
+</pre>
+</body>
+</html>

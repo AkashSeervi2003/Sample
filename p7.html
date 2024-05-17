@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+class Person:
+def __init__(self,person):
+    self.person = person
+        
+class Brothers:
+    def __init__(self,person1,person2):
+        self.person1=person1
+        self.person2=person2
+        
+def are_ravi_and_ajay_brothers(people):
+    for relation in people:
+        if isinstance(relation,Brothers):
+            return True
+    return False
+
+ravi = Person("Ravi")
+ajay = Person("Ajay")
+brother_relations = Brothers(ravi,ajay)
+
+people_relations = [brother_relations]
+
+if are_ravi_and_ajay_brothers(people_relations):
+    print("Ravi and Ajay are brothers")
+else:
+    print("Ravi and Ajay are not brothers")
+
+</pre>
+</body>
+</html>

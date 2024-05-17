@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+import math;
+def minmax(curDepth,nodeIndex,maxTurn,scores,targetDepth):
+    if (curDepth == targetDepth):
+        return scores[nodeIndex];
+    if (maxTurn):
+        return max(minmax(curDepth+1,nodeIndex*2,False,scores,targetDepth),
+                   minmax(curDepth+1,nodeIndex*2+1,False,scores,targetDepth));
+    else:
+        return min(minmax(curDepth+1,nodeIndex*2,True,scores,targetDepth),
+                   minmax(curDepth+1,nodeIndex*2+1,True,scores,targetDepth));
+scores =[1,2,3,4,5,6,7,8];
+treeDepth = math.log(len(scores),2);
+print("The Optimal Value is: ",end =" ");
+print(minmax(0,0,True,scores,treeDepth));
+</pre>
+</body>
+</html>

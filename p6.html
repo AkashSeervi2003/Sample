@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+class Person:
+def __init__(self,name):
+    self.name=name
+        
+class LikesCricket:
+    def __init__(self,person):
+        self.person=person
+        
+def does_sachin_like_cricket(people):
+    for person in people:
+        if isinstance(person,LikesCricket):
+            return True
+    return False
+
+sachin = Person("Sachin")
+virat = Person("Virat")
+dhoni = LikesCricket(Person("Dhoni"))
+
+people = [sachin,virat,dhoni]
+
+if does_sachin_like_cricket(people):
+    print("Sachin likes Cricket")
+else:
+    print("Sachin doesn't like Cricket")
+</pre>
+</body>
+</html>

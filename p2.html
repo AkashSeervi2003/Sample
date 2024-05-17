@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+graph = {
+    1: [1,2],
+    2: [2,3],
+    3: [3,4],
+    4: [4,5],
+    5: [5,1]
+};
+visited = set();
+def dfs(visited,graph,node):
+    if node not in visited:
+        print(node,end =" ");
+        visited.add(node);
+        for i in graph[node]:
+            dfs(visited,graph,i);
+print("Following is Depth-First-Search: ")
+dfs(visited,graph,1);
+</pre>
+</body>
+</html>
