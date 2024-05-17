@@ -25,4 +25,165 @@
     <h3><a href="/p7.html">7. Ravi and Ajay are brothers</a></h3>
     <h3><a href="/p8.html">8. Chinky is a Cat</a></h3>
 </body>
+<pre>
+    graph = {
+        1: [1,2],
+        2: [2,3],
+        3: [3,4],
+        4: [4,5],
+        5: [5,1]
+    };
+    visited = [];
+    queue = [];
+    def bfs(visited,graph,node):
+        visited.append(node);
+        queue.append(node);
+        while queue:
+            m = queue.pop(0);
+            print(m,end =" ");
+            for i in graph[m]:
+                if i not in visited:
+                    visited.append(i);
+                    queue.append(i);
+    print("Following is Breath-First-Search: ");
+    bfs(visited,graph,1);
+
+
+    import math;
+    def minmax(curDepth,nodeIndex,maxTurn,scores,targetDepth):
+        if (curDepth == targetDepth):
+            return scores[nodeIndex];
+        if (maxTurn):
+            return max(minmax(curDepth+1,nodeIndex*2,False,scores,targetDepth),
+                       minmax(curDepth+1,nodeIndex*2+1,False,scores,targetDepth));
+        else:
+            return min(minmax(curDepth+1,nodeIndex*2,True,scores,targetDepth),
+                       minmax(curDepth+1,nodeIndex*2+1,True,scores,targetDepth));
+    scores =[1,2,3,4,5,6,7,8];
+    treeDepth = math.log(len(scores),2);
+    print("The Optimal Value is: ",end =" ");
+    print(minmax(0,0,True,scores,treeDepth));
+
+    from collections import defaultdict;
+    jug1,jug2,aim = 4,3,2;
+    visited = defaultdict(lambda:False);
+    def waterJug(amt1,amt2):
+        if (amt1 == aim and amt2 == 0) or (amt2 == aim and amt1 == 0):
+            print(amt1,amt2);
+            return True;
+        if (visited[(amt1,amt2)]) == False:
+            print(amt1,amt2);
+            visited[(amt1,amt2)] = True;
+            return (waterJug(0,amt2) or 
+                    waterJug(amt1,0) or 
+                    waterJug(jug1,amt2) or 
+                    waterJug(amt1,jug2) or 
+                    waterJug(amt1+min(amt2,(jug1-amt1)),
+                             amt2-min(amt2,(jug1-amt1))) or 
+                    waterJug(amt1-min(amt1,(jug2-amt2)),
+                             amt2+min(amt1,(jug2-amt2))));
+        else:
+            return False;
+    print("Steps");
+    waterJug(0,0);
+
+    class Human:
+    def __init__(self,name):
+        self.name=name
+            
+    class Intelligent:
+        def __init__(self,entity):
+            self.entity=entity
+            
+    def is_some_humans_intelligent(humans):
+        for human in humans:
+            if isinstance(human,Intelligent):
+                return True
+        return False
+    
+    alice = Human("Alice")
+    bob = Human("Bob")
+    charlie = Intelligent(Human("Charlie"))
+    
+    humans = [alice,bob,charlie]
+    
+    if is_some_humans_intelligent(humans):
+        print("Some humans are intelligent.")
+    else:
+        print("No humans are intelligent")
+
+        class Person:
+        def __init__(self,name):
+            self.name=name
+                
+        class LikesCricket:
+            def __init__(self,person):
+                self.person=person
+                
+        def does_sachin_like_cricket(people):
+            for person in people:
+                if isinstance(person,LikesCricket):
+                    return True
+            return False
+        
+        sachin = Person("Sachin")
+        virat = Person("Virat")
+        dhoni = LikesCricket(Person("Dhoni"))
+        
+        people = [sachin,virat,dhoni]
+        
+        if does_sachin_like_cricket(people):
+            print("Sachin likes Cricket")
+        else:
+            print("Sachin doesn't like Cricket")
+
+            class Person:
+            def __init__(self,person):
+                self.person = person
+                    
+            class Brothers:
+                def __init__(self,person1,person2):
+                    self.person1=person1
+                    self.person2=person2
+                    
+            def are_ravi_and_ajay_brothers(people):
+                for relation in people:
+                    if isinstance(relation,Brothers):
+                        return True
+                return False
+            
+            ravi = Person("Ravi")
+            ajay = Person("Ajay")
+            brother_relations = Brothers(ravi,ajay)
+            
+            people_relations = [brother_relations]
+            
+            if are_ravi_and_ajay_brothers(people_relations):
+                print("Ravi and Ajay are brothers")
+            else:
+                print("Ravi and Ajay are not brothers")
+
+                class Animal:
+                def __init__(self,name):
+                    self.name = name
+                        
+                class Cat(Animal):
+                    pass
+                
+                def is_chinky_a_cat(animals):
+                    for animal in animals:
+                        if isinstance(animal,Cat):
+                            return True
+                    return False
+                
+                chinky = Cat("Chinky")
+                other_animal = Animal("Dog")
+                
+                animals = [chinky,other_animal]
+                
+                if is_chinky_a_cat(animals):
+                    print("Chinky is a Cat")
+                else:
+                    print("Chinky is not a Cat")
+</pre>
 </html>
